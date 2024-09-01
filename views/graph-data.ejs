@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Data</title>
+</head>
+<body>
+    <h1>Graph Data</h1>
+    <p>Select the type of data you want to view:</p>
+    <ul>
+        <li><a id="historical-data-link" href="#">Historical Data</a></li>
+        <li><a id="candle-data-link" href="#">Candle Data</a></li>
+    </ul>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUrl = window.location.pathname;
+            document.getElementById('historical-data-link').href = `${currentUrl}/historical-data`;
+            document.getElementById('candle-data-link').href = `${currentUrl}/candle-data`;
+        });
+    </script>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mx-auto mt-8">
+        <h1 class="text-2xl font-bold mb-4">Graph Data</h1>
+        <p>Select the type of data you want to view:</p>
+        <ul class="list-disc pl-5 mt-4">
+            <li><a href="crypto/assets/<%= id %>/historical-data" class="text-blue-500 hover:underline">Historical Data</a></li>
+            <li><a href="crypto/assets/<%=id%>/candle-data" class="text-blue-500 hover:underline">Candle Data</a></li>
+        </ul> 
+    </div>
+</body>
+</html> -->

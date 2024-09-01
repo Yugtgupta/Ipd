@@ -44,7 +44,7 @@
         <% data.forEach(asset => { %>
             <tr>
                 <td><%= asset.rank %></td>
-                <td><a href="/crypto/<%= asset.id %>"><%= asset.symbol %></a></td>
+                <td><a href="/crypto/assets/<%= asset.id %>"><%= asset.symbol %></a></td>
                 <td><%= asset.name %></td>
                 <td><%= parseFloat(asset.priceUsd).toFixed(3) %></td>
                 <td class="<%= asset.changePercent24Hr < 0 ? 'negative' : 'positive' %> bold">
