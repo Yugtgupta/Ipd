@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Details</title>
+</head>
+<body>
+    <h1>Stock Details for <%= stockDetails.info.symbol %></h1>
+    <ul>
+        <li>Company Name: <%= stockDetails.info.companyName %></li>
+        <li>Market Cap: <%= stockDetails.priceInfo.marketCap %></li>
+        <li>Current Price: <%= stockDetails.priceInfo.lastPrice %></li>
+        <li>Week High: <%= stockDetails.priceInfo.weekHighLow.max %></li>
+        <li>Week Low: <%= stockDetails.priceInfo.weekHighLow.min %></li>
+    </ul>
+</body>
+</html>     
