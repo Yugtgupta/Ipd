@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutual Funds</title>
+</head>
+<body>
+    <h1>Mutual Funds Information</h1>
+    <ul>
+        <% mutualFunds.forEach(function(fund) { %>
+            <li>
+                <ul>
+                    <% Object.keys(fund).forEach(function(key) { %>
+                        <li><strong><%= key %>:</strong> <%= fund[key] %></li>
+                    <% }); %>
+                </ul>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
