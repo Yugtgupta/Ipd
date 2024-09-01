@@ -4,32 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stock Details</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .positive {
+            color: green;
+            font-weight: bold;
+        }
+        .negative {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <h1>Stock Details for <%= stockDetails.info.symbol %></h1>
-    <ul>
-        <li>Company Name: <%= stockDetails.info.companyName %></li>
-        <li>Market Cap: <%= stockDetails.priceInfo.marketCap %></li>
-        <li>Current Price: <%= stockDetails.priceInfo.lastPrice %></li>
-        <li>Week High: <%= stockDetails.priceInfo.weekHighLow.max %></li>
-        <li>Week Low: <%= stockDetails.priceInfo.weekHighLow.min %></li>
-    </ul>
-
-    <!-- <table border="1">
+    <table>
         <tr>
+            <th>Symbol</th>
             <th>Company Name</th>
-            <th>Market Cap</th>
-            <th>Current Price</th>
-            <th>Week High</th>
-            <th>Week Low</th>
+            <th>Last Price</th>
+            <th>Percentage Change</th>
+            <th>Change</th>
         </tr>
         <tr>
+            <td><%= stockDetails.info.symbol %></td>
             <td><%= stockDetails.info.companyName %></td>
-            <td><%= stockDetails.priceInfo.marketCap %></td>
-            <td><%= stockDetails.priceInfo.lastPrice %></td>
-            <td><%= stockDetails.priceInfo.weekHighLow.max %></td>
-            <td><%= stockDetails.priceInfo.weekHighLow.min %></td>
+            <td><%= stockDetails.priceInfo.lastPrice.toFixed(2) %></td>
+            <td class="<%= stockDetails.priceInfo.pChange < 0 ? 'negative' : 'positive' %>">
+                <%= Math.abs(stockDetails.priceInfo.pChange).toFixed(3) %> <%= stockDetails.priceInfo.pChange < 0 ? '↓' : '↑' %>
+            </td>
+            <td class="<%= stockDetails.priceInfo.change < 0 ? 'negative' : 'positive' %>">
+                <%= Math.abs(stockDetails.priceInfo.change).toFixed(2) %> <%= stockDetails.priceInfo.change < 0 ? '↓' : '↑' %>
+            </td>
         </tr>
     </table>
-</body> -->
-</html>     
+</body>
+</html>
