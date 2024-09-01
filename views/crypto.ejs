@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Assets</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+        .positive {
+            color: green;
+        }
+        .negative {
+            color: red;
+        }
+        .bold {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Crypto Assets</h1>
+    <table>
+        <tr>
+            <th>Rank</th>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Price (USD)</th>
+            <th>Change (24Hr)</th>
+            <th>Volume (24hrs)</th>
+            <th>Market Cap</th>
+            
+        </tr>
+        <% data.forEach(asset => { %>
+            <tr>
+                <td><%= asset.rank %></td>
+                <td><a href="/crypto/<%= asset.id %>"><%= asset.symbol %></a></td>
+                <td><%= asset.name %></td>
+                <td><%= parseFloat(asset.priceUsd).toFixed(3) %></td>
+                <td class="<%= asset.changePercent24Hr < 0 ? 'negative' : 'positive' %> bold">
+                    <%= Math.abs(parseFloat(asset.changePercent24Hr)).toFixed(3) %>
+                    <%= asset.changePercent24Hr < 0 ? '↓' : '↑' %>
+                </td>
+                <td><%= parseFloat(asset.volumeUsd24Hr).toFixed(3) %></td>
+                <td><%= parseFloat(asset.marketCapUsd).toFixed(3) %></td>
+                
+            </tr>
+        <% }); %>
+    </table>
+</body>
+</html>
