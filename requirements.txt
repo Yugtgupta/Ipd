@@ -1,0 +1,9 @@
+beautifulsoup4 
+langchain
+langchain-community
+requests
+python-dotenv
+yfinance
+bs4
+openai
+duckduckgo-search
