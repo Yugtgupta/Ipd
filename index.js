@@ -98,6 +98,28 @@ app.get('/crypto/assets/:id/historical-data', async (req, res) => {
     // res.send('hello');
 });
 
+app.get('/mutualfunds/all', async (req, res) => {
+    const options = {
+        method: 'GET',
+        url: 'https://api.mfapi.in/mf',
+        headers: {
+            'Accept-Encoding': 'gzip, deflate'
+        }
+    };
+
+    try {
+        const response = await axios(options);
+        console.log(response.data);
+        // res.render('mutualFunds', response.data);
+        res.send(response.data);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+
+
 
 
 app.listen(port, () => {
